@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Docker build and publish 🐳
         run: |
-          cd app
+          cd ${GITHUB_WORKSPACE}
           docker build . -t=nest-back-art-seven-api:build-$GITHUB_RUN_NUMBER
           docker tag nest-back-art-seven-api:build-$GITHUB_RUN_NUMBER caprilespe/nest-back-art-seven-api:build-$GITHUB_RUN_NUMBER
           docker push caprilespe/nest-back-art-seven-api:build-$GITHUB_RUN_NUMBER
